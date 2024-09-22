@@ -103,6 +103,7 @@ my_project/
 │
 ├── gulp/
 │   └── tasks/
+│       ├── clean.js
 │       ├── sass.js
 │       ├── scripts.js
 │       ├── html.js
