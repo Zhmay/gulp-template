@@ -15,8 +15,9 @@ function serve() {
     });
 
     gulp.watch('src/style/**/*.scss', gulp.series(styles, reload));
+    gulp.watch('src/template/components/**/*.scss', gulp.series(styles, reload));
     gulp.watch('src/js/**/*.js', gulp.series(scripts, reload));
-    gulp.watch('src/template/**/*.html', gulp.series(html, reload));  
+    gulp.watch('src/template/**/*.html', gulp.series(html, reload));
 }
 
 exports.serve = serve;

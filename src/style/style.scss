@@ -6,3 +6,6 @@
 
 //Base components
 @import 'base/layout';
+
+//Pages & Modules
+@import '../template/components/**/*.scss';
