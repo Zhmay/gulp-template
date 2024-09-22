@@ -9,9 +9,9 @@ function serve() {
         server: './build'
     });
 
-    gulp.watch('src/scss/**/*.scss', gulp.series(styles));
+    gulp.watch('src/style/**/*.scss', gulp.series(styles));
     gulp.watch('src/js/**/*.js', gulp.series(scripts));
-    gulp.watch('src/pages/**/*.html', gulp.series(html));
+    gulp.watch('src/template/**/*.html', gulp.series(html));
     gulp.watch('build/*.html').on('change', browserSync.reload);
 }
 

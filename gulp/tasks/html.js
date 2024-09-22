@@ -3,7 +3,7 @@ const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync').create();
 
 function html() {
-    return gulp.src('src/pages/**/*.html')
+    return gulp.src('src/template/pages/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('build'))
         .pipe(browserSync.stream());

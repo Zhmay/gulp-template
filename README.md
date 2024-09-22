@@ -85,14 +85,16 @@ template/                                # Корень проекта
 my_project/
 │
 ├── src/
-│   ├── scss/
-│   │   └── main.scss  # Пример SCSS файла
+│   ├── style/
+│   │   └── main.scss       # Пример SCSS файла
 │   ├── js/
-│   │   └── main.js    # Пример JS файла
-│   └── pages/
-│       └── index.html  # HTML файл
+│   │   └── main.js         # Пример JS файла
+│   └── template/
+│       ├── components/     # Копмоненты\модули
+│       └── pages/          # Корневые страницы
+│           └── index.html  # Главная страница
 │
-├── build/  # Эта папка будет генерироваться Gulp
+├── build/                  # Эта папка будет генерироваться Gulp
 │
 ├── gulp/
 │   └── tasks/
@@ -102,4 +104,5 @@ my_project/
 │       └── serve.js
 │
 ├── gulpfile.js
+├── .gitignore.js
 └── package.json
