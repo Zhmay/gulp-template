@@ -74,10 +74,18 @@ template/                                # Корень проекта
 
 ------------------------------- My version for now -----------------------------
 
+### TODO:
+- сделать таску создания компонентов командой (с именем папки и файлов)
+- сделать таску билд (с минификацией css и js)
+- продумать добавление плагинов (подключение стилей и js)
+- продумать добавление спрайтов svg
+- добавить папку img + оптимизацию картинок
+
 ### Start
 
 - `npm install` -- Install all local packages
-- `gulp start` -- Start development
+- `gulp start`  -- Start development
+- `gulp build`  -- Build production version (all compress, no watcher)
 
 
 ## Structure
