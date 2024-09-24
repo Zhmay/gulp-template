@@ -5,6 +5,7 @@ const { html } = require('./gulp/tasks/html');
 const { serve } = require('./gulp/tasks/serve');
 const { clean } = require('./gulp/tasks/clean');
 const { images } = require('./gulp/tasks/images');
+const { createComponent } = require('./gulp/tasks/component');
 
 // tasks for development
 gulp.task('styles', stylesDev);
@@ -17,6 +18,9 @@ gulp.task('images', images);
 // tasks for production
 gulp.task('stylesProd', stylesProd);
 gulp.task('scriptsProd', scriptsProd);
+
+// tasks for create component
+gulp.task('component', createComponent);
 
 // build
 gulp.task('build', gulp.series('clean', 'stylesProd', 'scriptsProd', 'html', 'images'));

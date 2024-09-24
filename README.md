@@ -75,7 +75,6 @@ template/                                # Корень проекта
 ------------------------------- My version for now -----------------------------
 
 ### TODO:
-- сделать таску создания компонентов командой (с именем папки и файлов)
 - продумать подключение шрифтов
 - продумать добавление плагинов (подключение стилей и js)
 - продумать добавление спрайтов svg
@@ -86,6 +85,7 @@ template/                                # Корень проекта
 - `npm install` -- Install all local packages
 - `gulp start`  -- Start development
 - `gulp build`  -- Build production version (all compress, no watcher)
+- `gulp component --name <component_name>` -- Create component via console menu
 
 
 ## Structure
