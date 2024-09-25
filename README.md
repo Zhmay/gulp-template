@@ -75,7 +75,7 @@ template/                                # Корень проекта
 ------------------------------- My version for now -----------------------------
 
 ### TODO:
-- продумать подключение шрифтов
+- продумать подключение reset/normalize.css
 - продумать добавление плагинов (подключение стилей и js)
 - продумать добавление спрайтов svg
 - добавить таску watch.js для отслеживания добавления\удаления\изменения файлов
@@ -90,9 +90,17 @@ template/                                # Корень проекта
 
 ## Structure
 ```
-my_project/
-│
+root/
+├── build/                          # Эта папка будет генерироваться Gulp
+├── gulp/                           # Галп таски и конфиги
+│   └── tasks/                      # Таски
+│       ├── clean.js
+│       ├── sass.js
+│       ├── scripts.js
+│       ├── html.js
+│       └── serve.js
 ├── src/
+│   ├── fonts                       # Шрифты
 │   ├── images/                     # Графика
 │   ├── style/                      # Базовые стили
 │   │   ├── base                    # Компоненты (кнопки, инпуты, итд)
@@ -108,16 +116,6 @@ my_project/
 │       └── pages/                  # Корневые страницы
 │           └── index.html          # Главная страница
 │
-├── build/                          # Эта папка будет генерироваться Gulp
-│
-├── gulp/
-│   └── tasks/
-│       ├── clean.js
-│       ├── sass.js
-│       ├── scripts.js
-│       ├── html.js
-│       └── serve.js
-│
-├── gulpfile.js
-├── .gitignore.js
-└── package.json
+├── gulpfile.js                     # Галп
+├── .gitignore.js                   # Игнор лист
+└── package.json                    # Зависимости для node.js
