@@ -23,6 +23,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
     "sass": "^1.77.6"
   }
 }

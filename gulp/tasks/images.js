@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const fs = require('fs-extra');
 
 async function images() {
-    const srcDir = 'src/images/';
+    const srcDir = 'src/img/';
     const destDir = 'build/img/';
 
     try {
