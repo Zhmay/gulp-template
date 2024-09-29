@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gulp Project</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link href="css/foundation.css" rel="preload stylesheet" as="style">
+    <link href="css/style.css" rel="preload stylesheet" as="style">
 </head>
 <body>
     @@include('../components/header/header.html')
     <main></main>
     @@include('../components/footer/footer.html')
-    <script src="js/main.js"></script>
+    <script defer src="js/foundation.js"></script>
+    <script defer src="js/main.js"></script>
 </body>
 </html>

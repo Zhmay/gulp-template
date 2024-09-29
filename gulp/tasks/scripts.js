@@ -1,8 +1,16 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const pluginsJS = require('../plugins/plugins-js');
 const newer = require('gulp-newer');
 const browserSync = require('browser-sync').create();
+
+function foundationJS() {
+    return gulp.src(pluginsJS)
+        .pipe(concat('foundation.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js'));
+}
 
 function scriptsDev() {
     return gulp.src('src/js/**/*.js')
@@ -21,6 +29,7 @@ function scriptsProd() {
         .pipe(gulp.dest('build/js'));
 }
 
+exports.foundationJS = foundationJS;
 exports.scriptsDev = scriptsDev;
 exports.scriptsProd = scriptsProd;
 
