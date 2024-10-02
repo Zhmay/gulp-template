@@ -1,12 +1,17 @@
 const gulp = require('gulp');
 const fs = require('fs-extra');
 const path = require('path');
-const watch = require('gulp-watch');
+const { svgSpriteTask } = require('./sprite');
 
 const srcDir = 'src/';
 const buildDir = 'build/';
 
 function handleFileChange(event, filepath) {
+    if (!filepath || !event) {
+        console.error('Invalid file event or path.');
+        return;
+    }
+
     const relativePath = path.relative(srcDir, filepath);
     const destPath = path.join(buildDir, relativePath);
 
@@ -22,9 +27,16 @@ function handleFileChange(event, filepath) {
 }
 
 function watchFiles() {
-    watch(srcDir + '**/*', function (file) {
-        handleFileChange(file.event, file.path);
-    });
+
+    gulp.watch(srcDir + '**/*')
+        .on('all', (event, filepath) => {
+            handleFileChange(event, filepath);
+        });
+
+    gulp.watch('src/img/icons/**/*.svg')
+        .on('add', svgSpriteTask)
+        .on('change', svgSpriteTask)
+        .on('unlink', svgSpriteTask);
 
     gulp.watch('src/template/pages/**/*.html')
         .on('unlink', (filepath) => {

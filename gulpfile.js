@@ -6,6 +6,7 @@ const { serve } = require('./gulp/tasks/serve');
 const { clean } = require('./gulp/tasks/clean');
 const { images } = require('./gulp/tasks/images');
 const { fonts } = require('./gulp/tasks/fonts');
+const { svgSpriteTask } = require('./gulp/tasks/sprite');
 const { createComponent } = require('./gulp/tasks/component');
 const { watchFiles } = require('./gulp/tasks/watch');
 
@@ -17,6 +18,7 @@ gulp.task('serve', serve);
 gulp.task('clean', clean);
 gulp.task('images', images); 
 gulp.task('fonts', fonts); 
+gulp.task('sprite', svgSpriteTask);
 gulp.task('watch', watchFiles);
 
 // tasks for production
@@ -31,7 +33,7 @@ gulp.task('foundationJS', foundationJS);
 gulp.task('component', createComponent);
 
 // build
-gulp.task('build', gulp.series('clean', 'foundationCSS', 'foundationJS', 'stylesProd', 'scriptsProd', 'html', 'images', 'fonts'));
+gulp.task('build', gulp.series('clean', 'foundationCSS', 'foundationJS', 'stylesProd', 'scriptsProd', 'sprite', 'html', 'images', 'fonts', ));
 
 // start
-gulp.task('start', gulp.series('clean', 'foundationCSS', 'foundationJS', 'styles', 'scripts', 'images', 'html', 'fonts', gulp.parallel('watch', 'serve')));
+gulp.task('start', gulp.series('clean', 'foundationCSS', 'foundationJS', 'styles', 'scripts', 'images', 'sprite', 'html', 'fonts', gulp.parallel('watch', 'serve')));
