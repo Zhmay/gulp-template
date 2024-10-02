@@ -19,7 +19,7 @@ function html() {
     }
 
     return gulp.src('src/template/pages/*.html')
-        .pipe(newer('build'))
+        // .pipe(newer('build')) // blocked compile to build (for components)
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'

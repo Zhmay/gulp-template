@@ -8,14 +8,11 @@
     <link href="css/style.css" rel="preload stylesheet" as="style">
 </head>
 <body>
-    @@include('../components/header/header.html')
+    @@include('../components/header/header.html', { 'class' : '' })
     <main>
-            <svg>
-                <use xlink:href="img/sprite.svg#search"></use>
-            </svg>
-            <svg>
-                <use xlink:href="img/sprite.svg#home"></use>
-            </svg>
+        <svg>
+            <use xlink:href="img/sprite.svg#search"></use>
+        </svg>
     </main>
     @@include('../components/footer/footer.html')
     <script defer src="js/foundation.js"></script>
