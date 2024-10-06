@@ -8,8 +8,19 @@
     <link href="css/style.css" rel="preload stylesheet" as="style">
 </head>
 <body>
-    @@include('../components/header/header.html', { 'class' : '' })
+    @@include('../components/header/header.html')
     <main>
+        @@include('../components/breadcrumbs/breadcrumbs.html', {
+            "items" : [
+                {
+                    "link" : "Home"
+                },
+                {
+                    "link" : "Category name"
+                }
+            ],
+            "last" : "Single page name"
+        })
         <svg>
             <use xlink:href="img/sprite.svg#search"></use>
         </svg>
