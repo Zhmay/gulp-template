@@ -1,0 +1,54 @@
+<div class="examples @@if (context.customClass){@@customClass}">
+	<h1>Exaples of construction gulp-file-include</h1>
+	<hr>
+	<h2>Breadcrumbs template example</h2>
+	@@include('../../components/breadcrumbs/breadcrumbs.html', {
+		"items" : [
+			{
+				"link" : "Home"
+			},
+			{
+				"link" : "Category name"
+			}
+		],
+		"last" : "Single page name"
+	})
+	<hr>
+	<h2>@@customText</h2>
+	<hr>
+	<h2>if condition example</h2>
+	@@if (context.condition == true) {
+		<p>If condition is true you see this</p>
+	}
+	<hr>
+	<h2>for statement example (if condition in FOR does't works)</h2>
+	<ul>
+		@@for (var i = 0; i < professions.length; i++) {
+			<li style="display: flex; align-items: center">
+				<svg class="icon-`+professions[i].icon+`" width="24" height="24">
+					<use xlink:href="img/sprite.svg#`+professions[i].icon+`"></use>
+				</svg>
+				<div>`+professions[i].name+`</div>
+			</li>
+		}
+	</ul>
+	<hr>
+	<h2>Element with bakground image</h2>
+	<div style="background-image: url(@@bgImg); background-size: cover; width: 100px; height: 150px"></div>
+	<hr>
+	<h2>Loop example (works with if condition)</h2>
+	@@loop('examples-card.html', [
+	{
+		"title" : "First card title",
+		"text" : "First card text"
+	},
+	{
+		"title" : "Secons card title",
+		"text" : "Secons card text"
+	},
+	{
+		"title" : "Third card title",
+		"text" : "Third card text"
+	}
+])
+</div>

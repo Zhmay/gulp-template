@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulp Project</title>
+    <link href="css/foundation.css" rel="preload stylesheet" as="style">
+    <link href="css/style.css" rel="preload stylesheet" as="style">
+</head>
+<body>
+    @@include('../components/header/header.html')
+    <main>
+        <div class="container">
+            @@include('../components/examples/examples.html', {
+                "customClass" : "custom-class-example",
+                "customText" : "Custom Text for examples",
+                "condition" : true,
+                "professions" : [
+                    {
+                        "icon" : "car",
+                        "name" : "Driver"
+                    },
+                    {
+                        "icon" : "search",
+                        "name" : "Searcher"
+                    },
+                    {
+                        "icon" : "camera",
+                        "name" : "Photographer"
+                    }
+                ],
+                bgImg : "img/knight.jpg"
+            })
+        </div>
+        
+    </main>
+    @@include('../components/footer/footer.html')
+    <script defer src="js/foundation.js"></script>
+    <script defer src="js/main.js"></script>
+</body>
+</html>
