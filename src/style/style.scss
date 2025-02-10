@@ -10,5 +10,11 @@
 //Base components
 @import 'base/layout';
 
+@import 'base/typography';
+
+@import 'base/button';
+
+@import 'base/icons';
+
 //Pages & Modules
 @import '../template/components/**/*.scss';
