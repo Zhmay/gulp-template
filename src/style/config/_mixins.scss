@@ -1,0 +1,55 @@
+@mixin b($point) {
+  @if $point == mobile-sm {
+    @media (min-width: $brake-point-xs + 'px') { @content; }
+  }
+  @else if $point == mobile {
+    @media (min-width: $brake-point-sm + 'px') { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: $brake-point-md + 'px') { @content; }
+  }
+  @else if $point == desktop {
+    @media (min-width: $brake-point-lg + 'px') { @content; }
+  }
+  @else {
+    @media (min-width: $point + 'px') { @content; }
+  }
+}
+
+@mixin placeholderColor($input-placeholder) {
+  &::-webkit-input-placeholder {
+    color: $input-placeholder;
+  }
+  &:-moz-placeholder {
+    color: $input-placeholder;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    color: $input-placeholder;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color: $input-placeholder;
+  }
+  &:focus:-moz-placeholder {
+    color: transparent;
+    opacity: 1;
+  }
+  &:focus::-moz-placeholder {
+    color: transparent;
+    opacity: 1;
+  }
+  &:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+  &:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+@mixin trs {
+  transition: $global-transition;
+}
