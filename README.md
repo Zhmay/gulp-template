@@ -1,5 +1,7 @@
 ### Start
 
+- `nvm ls` -- check all node version & selected version
+- `nvm use <node_version>` -- change node version (for example v22.4.1)
 - `npm install` -- Install all local packages
 - `gulp start`  -- Start development
 - `gulp build`  -- Build production version (all compress, no watcher)
@@ -36,12 +38,13 @@ root/
 │   ├── js/                         # Скрипты
 │   │   └── main.js                 # Пример JS файла
 │   └── template/                   # HTML
-│       ├── components/             # Копмоненты\модули
-│       │   └── header/             # Копмонент header
+│       ├── components/             # Компоненты\модули
+│       │   └── header/             # Компонент header
 │       │       ├── header.html     # html файл
 │       │       └── header.scss     # scss файл
 │       └── pages/                  # Корневые страницы
-│           └── index.html          # Главная страница
+│           ├── index.html          # Главная страница
+│           └── template.html       # Страница с примерами компонентов 
 │
 ├── gulpfile.js                     # Галп
 ├── .gitignore.js                   # Игнор лист
