@@ -1,6 +1,6 @@
 const gulp = require('gulp');
-const { foundationCSS, stylesDev, stylesProd } = require('./gulp/tasks/sass');
-const { foundationJS, scriptsDev, scriptsProd } = require('./gulp/tasks/scripts');
+const { foundationCSS, styles } = require('./gulp/tasks/sass');
+const { foundationJS, scripts } = require('./gulp/tasks/scripts');
 const { html } = require('./gulp/tasks/html');
 const { serve } = require('./gulp/tasks/serve');
 const { clean } = require('./gulp/tasks/clean');
@@ -11,8 +11,8 @@ const { createComponent } = require('./gulp/tasks/component');
 const { watchFiles } = require('./gulp/tasks/watch');
 
 // tasks for development
-gulp.task('styles', stylesDev);
-gulp.task('scripts', scriptsDev);
+gulp.task('styles', () => styles(false));
+gulp.task('scripts', () => scripts(false));
 gulp.task('html', html);
 gulp.task('serve', serve);
 gulp.task('clean', clean);
@@ -22,8 +22,8 @@ gulp.task('sprite', svgSpriteTask);
 gulp.task('watch', watchFiles);
 
 // tasks for production
-gulp.task('stylesProd', stylesProd);
-gulp.task('scriptsProd', scriptsProd);
+gulp.task('stylesProd', () => styles(true));
+gulp.task('scriptsProd', () => scripts(true));
 
 // tasks for foundation (libraries)
 gulp.task('foundationCSS', foundationCSS);

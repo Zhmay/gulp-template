@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const browserSync = require('../config/browser-sync');
-const { stylesDev } = require('./sass'); 
-const { scriptsDev } = require('./scripts');
+const { styles } = require('./sass');
+const { scripts } = require('./scripts');
 const { html } = require('./html');
 
 function reload(done) {
@@ -14,9 +14,9 @@ function serve() {
         server: './build'
     });
 
-    gulp.watch('src/style/**/*.scss', gulp.series(stylesDev, reload));
-    gulp.watch('src/template/components/**/*.scss', gulp.series(stylesDev, reload));
-    gulp.watch('src/js/**/*.js', gulp.series(scriptsDev, reload));
+    gulp.watch('src/style/**/*.scss', gulp.series(() => styles(false), reload));
+    gulp.watch('src/template/components/**/*.scss', gulp.series(() => styles(false), reload));
+    gulp.watch('src/js/**/*.js', gulp.series(() => scripts(false), reload));
     gulp.watch('src/template/**/*.html', gulp.series(html, reload));
 }
 

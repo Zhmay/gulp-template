@@ -4,7 +4,6 @@ const sassGlob = require('gulp-sass-glob');
 const cleanCSS = require('gulp-clean-css');
 const pluginsCSS = require('../plugins/plugins-css');
 const concat = require('gulp-concat');
-const newer = require('gulp-newer');
 const browserSync = require('../config/browser-sync');
 
 function foundationCSS() {
@@ -14,27 +13,21 @@ function foundationCSS() {
         .pipe(gulp.dest('build/css'));
 }
 
-function stylesDev() {
-    return gulp.src('src/style/style.scss')
-        // .pipe(newer('build/css/style.css')) // blocked compile to build
+function styles(prod) {
+    let pipeline = gulp.src('src/style/style.scss')
         .pipe(sassGlob())
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('build/css'))
-        .pipe(browserSync.stream());
-}
-
-function stylesProd() {
-    return gulp.src('src/style/style.scss')
-        .pipe(sassGlob())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest('build/css'))
-        .pipe(cleanCSS())
-        .pipe(concat('style.min.css'))
         .pipe(gulp.dest('build/css'));
+
+    if (prod) {
+        return pipeline
+            .pipe(cleanCSS())
+            .pipe(concat('style.min.css'))
+            .pipe(gulp.dest('build/css'));
+    }
+    return pipeline.pipe(browserSync.stream());
 }
 
 exports.foundationCSS = foundationCSS;
-exports.stylesDev = stylesDev;
-exports.stylesProd = stylesProd;
+exports.styles = styles;

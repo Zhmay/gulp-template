@@ -26,24 +26,25 @@ function foundationJS() {
         .pipe(gulp.dest('build/js'));
 }
 
-function scriptsDev() {
-    return gulp.src('src/js/**/*.js')
-        .pipe(newer('build/js/main.js'))
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest('build/js'))
-        .pipe(browserSync.stream());
-}
+function scripts(prod) {
+    let pipeline = gulp.src('src/js/**/*.js');
 
-function scriptsProd() {
-    return gulp.src('src/js/**/*.js')
+    if (!prod) {
+        pipeline = pipeline.pipe(newer('build/js/main.js'));
+    }
+
+    pipeline = pipeline
         .pipe(concat('main.js'))
-        .pipe(gulp.dest('build/js'))
-        .pipe(uglify())
-        .pipe(concat('main.min.js'))
         .pipe(gulp.dest('build/js'));
+
+    if (prod) {
+        return pipeline
+            .pipe(uglify())
+            .pipe(concat('main.min.js'))
+            .pipe(gulp.dest('build/js'));
+    }
+    return pipeline.pipe(browserSync.stream());
 }
 
 exports.foundationJS = foundationJS;
-exports.scriptsDev = scriptsDev;
-exports.scriptsProd = scriptsProd;
-
+exports.scripts = scripts;
