@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
+const browserSync = require('../config/browser-sync');
 const { stylesDev } = require('./sass'); 
 const { scriptsDev } = require('./scripts');
 const { html } = require('./html');

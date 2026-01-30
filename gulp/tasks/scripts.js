@@ -3,7 +3,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const pluginsJS = require('../plugins/plugins-js');
 const newer = require('gulp-newer');
-const browserSync = require('browser-sync').create();
+const browserSync = require('../config/browser-sync');
 const fs = require('fs');
 const path = require('path');
 

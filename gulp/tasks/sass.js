@@ -5,7 +5,7 @@ const cleanCSS = require('gulp-clean-css');
 const pluginsCSS = require('../plugins/plugins-css');
 const concat = require('gulp-concat');
 const newer = require('gulp-newer');
-const browserSync = require('browser-sync').create();
+const browserSync = require('../config/browser-sync');
 
 function foundationCSS() {
     return gulp.src(pluginsCSS)
