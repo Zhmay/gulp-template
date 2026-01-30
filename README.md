@@ -3,9 +3,9 @@
 - `nvm ls` -- check all node version & selected version
 - `nvm use <node_version>` -- change node version (for example v22.4.1)
 - `npm install` -- Install all local packages
-- `gulp start`  -- Start development
-- `gulp build`  -- Build production version (all compress, no watcher)
-- `gulp component --name <component_name>` -- Create component via console menu
+- `npm run dev`  -- Start development
+- `npm run build`  -- Build production version (all compress, no watcher)
+- `npm run component -- --name <component_name>` -- Create component via console menu
 
 
 ## Structure
